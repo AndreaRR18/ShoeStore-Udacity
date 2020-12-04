@@ -1,6 +1,7 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -12,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +33,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         val appBarConfiguration = AppBarConfiguration(navController.graph)
+        setSupportActionBar(binding.toolbar)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.appbarLayout.visibility = (
+                    when (destination.id) {
+                        R.id.loginFragment-> View.GONE
+                        R.id.welcomeFragment-> View.GONE
+                        R.id.instructionFragment -> View.GONE
+                        else -> View.VISIBLE
+                    })
+        }
 
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
 

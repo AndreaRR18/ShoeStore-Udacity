@@ -7,6 +7,8 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
 
+    private var isLogged: Boolean = false
+
     private val shoeList: MutableLiveData<List<Shoe>> by lazy {
          MutableLiveData<List<Shoe>>(
         listOf(
@@ -20,10 +22,16 @@ class ShoeListViewModel : ViewModel() {
 
     fun getShoes(): LiveData<List<Shoe>> = shoeList
 
+    fun isLogged(): Boolean = isLogged
+
     fun addNewElement(shoe: Shoe) {
-        val newList: MutableList<Shoe>? = shoeList.value.orEmpty().toMutableList()
-        newList?.add(shoe)
+        val newList: MutableList<Shoe> = shoeList.value.orEmpty().toMutableList()
+        newList.add(shoe)
         shoeList.value = newList
+    }
+
+    fun setLogged() {
+        isLogged = true
     }
 
 }

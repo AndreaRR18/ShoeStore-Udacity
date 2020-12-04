@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
@@ -26,10 +27,11 @@ class InstructionFragment : Fragment() {
             container,
             false
         )
+
         binding.next.setOnClickListener {
             findNavController().navigate(R.id.action_instructionFragment_to_shoeListFragment)
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this) {}
+
         return binding.root
     }
 
