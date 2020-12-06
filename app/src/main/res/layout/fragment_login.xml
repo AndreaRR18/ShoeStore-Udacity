@@ -3,9 +3,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- In the given layout, both layouts: ConstraintLayout and LinearLayout can be applied.
+I chose LinearLayout with android:orientation="vertical" attribute because the number of views is only 4 and they all can be positioned vertically to each other in a simple manner -->
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
         <EditText
             android:id="@+id/usernameEditText"
@@ -14,10 +19,7 @@
             android:layout_marginTop="20dp"
             android:autofillHints="Username"
             android:hint="@string/username"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -27,9 +29,6 @@
             android:autofillHints="Password"
             android:hint="@string/password"
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/usernameEditText"
             app:passwordToggleEnabled="true" />
 
         <Button
@@ -37,22 +36,15 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/signupButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/sign_up"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginButton" />
+            android:text="@string/sign_up" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
-
 

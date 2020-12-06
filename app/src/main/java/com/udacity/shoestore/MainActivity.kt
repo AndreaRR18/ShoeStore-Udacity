@@ -2,24 +2,18 @@ package com.udacity.shoestore
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
-import com.udacity.shoestore.viewmodel.ShoeListViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    val model: ShoeListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.appbarLayout.visibility = (
                     when (destination.id) {
-                        R.id.loginFragment-> View.GONE
-                        R.id.welcomeFragment-> View.GONE
+                        R.id.loginFragment -> View.GONE
+                        R.id.welcomeFragment -> View.GONE
                         R.id.instructionFragment -> View.GONE
                         else -> View.VISIBLE
                     })

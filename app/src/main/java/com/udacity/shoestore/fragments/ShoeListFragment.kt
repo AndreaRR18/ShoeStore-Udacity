@@ -3,7 +3,6 @@ package com.udacity.shoestore.fragments
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
