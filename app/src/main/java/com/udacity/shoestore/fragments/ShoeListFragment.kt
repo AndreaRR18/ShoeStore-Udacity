@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -49,6 +50,7 @@ class ShoeListFragment : Fragment() {
         super.onResume()
         viewModel.getShoes().observe(viewLifecycleOwner, Observer {
             updateShoeList()
+
         })
     }
 
@@ -74,11 +76,13 @@ class ShoeListFragment : Fragment() {
                 val txt: TextView = TextView(context)
                 txt.height = 300
                 txt.width = binding.linearLayout.width
-                txt.setText("Name: ${it.name} \n " + "Size: ${it.size} \n" + "company: ${it.company} \n" + "description: ${it.description} \n")
+                txt.text = it.getDescription()
                 return@map txt
             }
                 .forEach { this.binding.linearLayout.addView(it) }
         })
     }
+
+    private fun Shoe.getDescription(): String = "Name: ${name} \nSize: ${size} \ncompany: ${company} \ndescription: ${description}"
 
 }

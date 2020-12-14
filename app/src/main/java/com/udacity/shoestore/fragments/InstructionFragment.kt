@@ -28,6 +28,8 @@ class InstructionFragment : Fragment() {
             false
         )
 
+        requireActivity().onBackPressedDispatcher.addCallback(this) {}
+
         binding.next.setOnClickListener {
             findNavController().navigate(R.id.action_instructionFragment_to_shoeListFragment)
         }

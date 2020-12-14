@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="horizontal_margin">16</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="medium_margin">20dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
 </resources>

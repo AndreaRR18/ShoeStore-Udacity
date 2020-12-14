@@ -12,6 +12,15 @@ I chose LinearLayout with android:orientation="vertical" attribute because the n
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:title="Shoe store"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/cardview_light_background" />
+
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="300dp"
